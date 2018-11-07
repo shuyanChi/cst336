@@ -1,0 +1,23 @@
+<?php
+session_start();
+include '../../inc/dbConnection.php';
+$dbConn = startConnection("ottermart");
+include 'inc/functions.php';
+validateSession();
+if(isset($_GET['productId'])) {
+    $productInfo = getProductInfo($_GET['productId']);
+    
+}
+
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Product Info </title>
+    </head>
+    <body>
+        <h3><?= $productInfo['productName']?></h3>
+        <?= $productInfo['productDescription']?><br />
+        <img src = '<?= $productInfo['productImagae']?>' height = '75'/>
+    </body>
+</html>

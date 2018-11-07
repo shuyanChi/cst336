@@ -1,0 +1,139 @@
+body {
+    padding-top: 2px;
+}
+h1 {
+    padding-top: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 5em;
+    margin-bottom: 0px;
+    text-shadow: 3px 3px 15px #F5F5DC;
+    
+}
+h2{
+    text-align: center;
+    padding-top: 20px;
+}
+h3 {
+    padding: 5px;
+    text-align: left;
+    color: #000000;
+    border-radius: 15%;
+}
+h4{
+    padding-left: 650px;
+    padding-top: 50px;
+    position:absolute;
+    font-weight:bold;
+    color: #000000;
+}
+.error{
+    color: #FF0000;
+    font-size: 0.5em;
+    
+}
+body {
+    background-image: url("../img/blueline.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    /*background-image: url("img_tree.gif"), url("paper.gif");*/
+}
+#tree {
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    margin-bottom: 0px;
+}
+
+div {
+    margin: 0px;
+    padding: 15px; 
+    vertical-align: top;
+    text-decoration: left;
+}
+main {
+    display: flex;
+    justify-content: center;
+   
+}
+main div{
+    padding:80px;
+}
+
+#image {
+    margin-top: -5px;
+    border-radius: 10%;
+    border: 1px solid blue;
+    padding: 15px;
+    box-shadow: 10px 10px 5px #F5F5DC;
+}  
+#answers{
+    margin-top:0px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #996633;
+    font-size: 1.5em;
+    box-shadow: 10px 10px 5px #F5F5DC;
+}
+
+#spin{
+    bottom:50px;
+    left: 410px;
+    padding: 15px;
+    border-radius: 50%;
+    position:absolute;
+    font-weight:bold;
+    color: #ffffff;
+    background-color: #000099;
+    cursor:pointer;
+    border: none;
+    box-shadow: 5px 10px #3399ff;
+}
+#spin2{
+    bottom:50px;
+    left: 810px;
+    padding: 15px;
+    border-radius: 50%;
+    position:absolute;
+    font-weight:bold;
+    color: #ffffff;
+    background-color: #000099;
+    cursor:pointer;
+    border: none;
+    box-shadow: 5px 10px #3399ff;
+}
+
+
+em {
+    position: absolute;
+    bottom:95px;
+    left: 300px;
+    font-size: 1em;
+}
+#login{
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    padding:15px;
+    color: #FFFFFF;
+    background-color: grey;
+    border-radius: 25%;
+}
+#loginpage{
+   text-align: center;
+}
+a:link {
+    color: #000099;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+footer {
+    clear: left;
+    color: #000000;
+    text-align: center;
+    font-size: 13px;
+    padding: 15px;
+    box-shadow: 10px 10px 5px #F5F5DC;
+}

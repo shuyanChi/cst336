@@ -1,0 +1,57 @@
+/ <?php
+    function displaySymbol($random_value) {
+       // $random_value = rand(0, 2); //Generates a random number from 0 to 2
+        $symbol = "orange";
+        switch($random_value) {
+            case 0: $symbol = "seven";
+            break;
+            case 1: $symbol = "cherry";
+            break;
+            case 2: $symbol = "Lemon";
+            break;
+        } //switch
+        echo "<img src = 'img/$symbol.png' alt ='$symbol' title ='".ucfirst($symbol)."' width = '70'/>";
+    }//displaySymbol;
+ 
+     function displayPoints($randomvalue1, $randomvalue2, $randomvalue3) {
+        echo "<div id = 'output'>";
+        if($randomvalue1 == $randomvalue2 && $randomvalue2 == $randomvalue3) {
+            switch($randomValue1) {
+                case 0: $totalPoints = 1000;
+                        echo "<h1>Jackpot!</h1>";
+                        break;
+                case 1: $totalPoints = 500;
+                        break;
+                case 2: $totalPoints = 250;
+                        break;
+            } //switch
+     
+        echo "<h2>You won $totalPints points!</h2>";
+        }//if
+        
+        else {
+            echo "<h3>Try Again!</h3>";
+        }
+        echo "</div>";
+    }//displayPoint
+     function play() {
+        for($i = 1; $i = 4; $i++) {
+            ${randomvalue.$i} = rand(0, 2);
+            displaySymbol(${randomvalue . $i});
+        }//for
+        displayPoints($randomValue1, $randomValue2, $randomValue3);
+    }
+    
+
+?> 
+
+
+
+from index
+     <?php
+            include 'inc/functions.php';
+        ?>
+        <?php
+              play();
+        ?>
+            

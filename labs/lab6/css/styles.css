@@ -1,0 +1,30 @@
+body {
+    padding-top: 2px;
+}
+h1 {
+    padding-top: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin-bottom: 0px;
+    text-shadow: 3px 3px 15px #F5F5DC;
+    
+}
+form {
+    padding: 50px;
+    text-align: center;
+    box-shadow: 10px 10px 5px #F5F5DC;
+}
+hr {
+    color:  #F5F5DC;
+ 
+}
+footer {
+    clear: left;
+    color: #000000;
+    text-align: center;
+    font-size: 13px;
+    padding: 15px;
+    
+}
