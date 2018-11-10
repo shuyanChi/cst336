@@ -1,8 +1,9 @@
 <?php
-
+session_start();
 include '../../inc/dbConnection.php';
 $dbConn = startConnection("ottermart");
 include 'inc/functions.php';
+validateSession();
 
 if (isset($_GET['addProduct'])) { //checks whether the form was submitted
     
@@ -24,18 +25,20 @@ if (isset($_GET['addProduct'])) { //checks whether the form was submitted
     $stmt = $dbConn->prepare($sql);
     $stmt->execute($np);
     echo "New Product was added!";
-    
 }
-
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title> Admin Section: Add New Product </title>
+         <style>
+         @import url("css/styles.css");
+        </style>
     </head>
     <body>
         
         <h1> Adding New Product </h1>
+        <h2><a href = "admin.php">Back to Admin Page</a></h2>
         
         <form>
            Product name: <input type="text" name="productName"><br />
@@ -56,9 +59,9 @@ if (isset($_GET['addProduct'])) { //checks whether the form was submitted
               
               ?>
            </select> <br />
-           Set Image Url: <input type="text" name="productImage"><br>
-           <input type="submit" name="addProduct" value="Add Product">
+           
+           Set Image Url: <input type="text" name="productImage"><br />
+           <input class = "button" type="submit" name="addProduct" value="Add Product">
         </form>
-
     </body>
 </html>

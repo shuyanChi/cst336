@@ -1,7 +1,9 @@
 <?php
+session_start();
 include '../../inc/dbConnection.php';
 $dbConn = startConnection("ottermart");
 include 'inc/functions.php';
+validateSession();
 
 if (isset($_GET['updateProduct'])){  //user has submitted update form
     $productName = $_GET['productName'];
@@ -17,6 +19,10 @@ if (isset($_GET['updateProduct'])){  //user has submitted update form
                catId = :catId,
                productImage = :productImage
             WHERE productId = " . $_GET['productId'];
+    $np = array(":productName" => $productName, ":productDescription" => $description, ":productImage" => $image, ":price" => $price, ":catId" => $catId);
+    $stmt = $dbConn->prepare($sql);
+    $stmt->execute($np);
+    echo "ProductValues are changed!";
 }
 
 if (isset($_GET['productId'])) {
@@ -31,13 +37,16 @@ if (isset($_GET['productId'])) {
 <html>
     <head>
         <title> Update Products! </title>
+         <style>
+         @import url("css/styles.css");
+        </style>
     </head>
     <body>
 
         <h1> Updating a Product </h1>
-        
-        <form>
-            <input type="text" name="productId" value="<?=$productInfo['productId']?>">
+        <h2><a href = "admin.php">Back to Admin Page</a></h2>
+        <form action>
+            <input type="hidden" name="productId" value="<?=$productInfo['productId']?>">
            Product name: <input type="text" name="productName" value="<?=$productInfo['productName']?>"><br>
            Description: <textarea name="description" cols="50" rows="4"> <?=$productInfo['productDescription']?> </textarea><br>
            Price: <input type="text" name="price" value="<?=$productInfo['price']?>"><br>
@@ -59,9 +68,8 @@ if (isset($_GET['productId'])) {
               ?>
            </select> <br />
            Set Image Url: <input type="text" name="productImage" value="<?=$productInfo['productImage']?>"><br>
-           <input type="submit" name="updateProduct" value="Update Product">
+           <input class = "button" type="submit" name="updateProduct" value="Update Product">
         </form>
-        
-        
+       
     </body>
 </html>
