@@ -24,7 +24,7 @@ if (isset($_GET['addProduct'])) { //checks whether the form was submitted
     $np = array(":productName" => $productName, ":productDescription" => $description, ":productImage" => $image, ":price" => $price, ":catId" => $catId);
     $stmt = $dbConn->prepare($sql);
     $stmt->execute($np);
-    echo "New Product was added!";
+    echo "<span>New Product was added!</span>";
 }
 ?>
 <!DOCTYPE html>

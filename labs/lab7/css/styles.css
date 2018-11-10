@@ -1,21 +1,20 @@
     @import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
     body {
         padding-top: 55px;
-        background-image:url("../img/leaves.png");
+        background-image:url("../img/toys.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
     
     h1 {
-    padding-top: 0px;
+    padding-top: 35px;
     margin-top: 0px;
     text-align: center;
     font-family: 'Pacifico', cursive;
-    font-size: 3em;
+    font-size: 3.5em;
     margin-bottom: 0px;
-    color:#333300;
-    
+    color:#003300;
     }
     h2 {
         padding-top: 15px;
@@ -44,6 +43,13 @@
          font-style: italic;
          font-size: 1.2em;
          color:#cc0000;
+    }
+    span {
+        position: absolute;
+        top: 280px;
+        left: 650px;
+        font-size: 1.6em;
+        color: #cc0000;
     }
     footer{
         font-family: "Times New Roman", Georgia, Serif;

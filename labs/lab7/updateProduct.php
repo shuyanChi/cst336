@@ -22,7 +22,7 @@ if (isset($_GET['updateProduct'])){  //user has submitted update form
     $np = array(":productName" => $productName, ":productDescription" => $description, ":productImage" => $image, ":price" => $price, ":catId" => $catId);
     $stmt = $dbConn->prepare($sql);
     $stmt->execute($np);
-    echo "ProductValues are changed!";
+    echo "<span>ProductValues are changed!</span>";
 }
 
 if (isset($_GET['productId'])) {
