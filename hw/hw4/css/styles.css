@@ -1,10 +1,3 @@
-body {
-    padding-top: 2px;
-    background-image: url("img/background.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
-}
-
 h1 {
     padding-top: 0px;
     margin-top: 0px;
@@ -20,11 +13,9 @@ h2{
     padding-top: 20px;
 }
 h3 {
-    position:absolute;
     padding: 5px;
     text-align: left;
     color: #000000;
-    border-radius: 15%;
 }
 h4{
     padding-left: 650px;
@@ -33,10 +24,17 @@ h4{
     font-weight:bold;
     color: #000000;
 }
-.error{
-    color: #FF0000;
-    font-size: 0.5em;
-    
+
+body {
+    padding-top: 2px;
+    background-image: url("../img/background.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    /*background-image: url("img_tree.gif"), url("paper.gif");*/
+}
+
+p {
+    padding-bottom: 8px;
 }
 
 div {
@@ -71,21 +69,33 @@ main div{
 }
 
 #spin{
-    position:absolute;
-    bottom:50px;
-    padding-right: 50px;
+    bottom:120px;
+    right: 595px;
     padding: 15px;
     border-radius: 50%;
+    position:absolute;
     font-weight:bold;
     color: #ffffff;
-    background-color: #000099;
+    background-color: #f44248;
     cursor:pointer;
     border: none;
-    box-shadow: 5px 10px #3399ff;
+    box-shadow: 5px 10px #a8aa86;
+  
 }
+
 #demo {
+     position:absolute;
+     top: 160px;
+     left: 650px;
+     padding: 15px;
+     font-size: 1.2em;
+}
+
+em {
     position: absolute;
-    padding-left: 55px;
+    bottom:95px;
+    left: 300px;
+    font-size: 1em;
 }
 
 a:link {

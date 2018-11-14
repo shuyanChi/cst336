@@ -8,19 +8,26 @@
         <script>
         
             function validateForm() {
-                //alert($("#username").val());
+                
                 var username = $("#username").val();
-                var psw = $("p").val();
-                if(username.length < 5) {
-                    $("#usernameError").html("Error: Username must be at least 5 characters.");
+                
+                if (username.length < 5 ) {
+                    
+                    $("#usernameError").html("Error: Username must be at least 5 characters long");
+                    
                 }
+                
                 return false;
            
             }
             
         </script>
-        <style>
         
+        <style>
+            
+            .error{
+                color: red;
+            }
         </style>
 
     </head>
@@ -54,9 +61,10 @@
                 
                 Select a County: <select></select><br>
                 
-                Desired Username: <input id = "username" type="text"><span id = "usernameError"></span><br>
+                Desired Username: <input id="username"  type="text">  <span id="usernameError" class="error" ></span> 
+                <br>
                 
-                Password: <input id = "psw" type="password"> <span id = "pswError"></span><br>
+                Password: <input type="password"><br>
                 
                 Type Password Again: <input type="password"><br>
                 

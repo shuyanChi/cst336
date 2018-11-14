@@ -17,18 +17,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <meta charset = "utf-8">
         <title>
             Learn Chinese
         </title>
-    </head>
-    <body>
-        <h1>Learn Chinese</h1>
-        <div id = "login">
-            <a href = "signup.php">sign up</a>
-        </div>
+        <script>
+$(document).ready(function(){
+    $("#p1").mouseenter(function(){
+        alert("You entered p1!");
+    });
+});
+
+</script>
+<script>
+$(document).ready(function(){
+    $("p").dblclick(function(){
+        $(this).hide();
+    });
+});
+</script>
         <main>
            <div style="padding-left: 10px";>
                <h3><?php display($charSet); ?></h3> <br />
@@ -48,6 +58,10 @@
              <h3><?php display($charSet_a); ?></h3> <br />
              <?php printPho()?>
              <br /><br />
+             <p id="p1">Enter this paragraph.</p>
+            <p>If you double-click on me, I will disappear.</p>
+            <p>Click me away!</p>
+            <p>Click me too!</p>
              <form method = "POST" action = "actionpage_a.php">
                  <select name = "animals">
                      <option value = "">-Select One-</option>
