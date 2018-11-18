@@ -15,20 +15,18 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
 //var hintButton = document.creatElement("hint");
 //hintButton.innerHTML = "Hint!";
 //events
+
+window.onload = startGame();
+
+// Do something when clicking on each letter
+$("#letters").on("click", ".letter", function(){
+    checkLetter($(this).attr("id"));
+    disableButton($(this));
+});
+
 $(".replayBtn").on("click", function() {
     location.reload();
 });
-window.onload = startGame();
-
-/*$("#letterBtn").click(function() {
-    alert($("#letterBox").val());
-})
-
-$(".letter").click(function() {
-    checkLetter($(this).attr("id"));
-    disableButton($(this));
-    //console.log($(this).attr("id"));
-});*/
 
 
 //functions          
@@ -39,10 +37,10 @@ $(".letter").click(function() {
 
 function startGame() {
     pickWord();
+    createLetters();
     initBoard();
     updateBoard();
-    createLetters();
-   
+    
 }
 //Fill the board with underscores
 
@@ -60,10 +58,10 @@ function createLetters() {
         $("#letters").append("<button class = 'letter btn btn-success' id = '" + letter + "'>" + letter + "</button>");
         
     }
-    $(".letter").click(function() {
+    /*$(".letter").click(function() {
         checkLetter($(this).attr("id"));
         disableButton($(this));
-    });
+    });*/
 }
 function initBoard() {
     for(var letter in selectedWord) {
@@ -84,7 +82,7 @@ function updateBoard() {
     $(".hint").hide();
     $("#hint").click(function() {
        $(".hint").show(); 
-       remainingGuesses--;
+       //remainingGuesses--;
     });
 }
 /*function showHint() {
@@ -112,17 +110,17 @@ function checkLetter(letter) {
         updateWord(positions, letter);
     }
     //Check to see if this is a winning guess
-    if(!board.includes("_")) {
+    /*if(!board.includes("_")) {
         endGame(true);
-    }
+    }*/
     else{
-        remainingGuesses--;
-       // updateMan();
+        remainingGuesses-=1;
+        updateMan();
     }
-    if(remainingGuesses < 0) {
+    if(remainingGuesses <= 0) {
         endGame(false);
     }
-    updateMan();
+   
 }
 
 //Update the current word then calls for a board update
@@ -131,6 +129,12 @@ function updateWord(positions, letter) {
         board[pos] = letter;
     }
     updateBoard();
+    //check to see if this is a winning guess *****
+    if(!board.includes("_")) {
+        endGame(true);
+        
+    }
+    //*****
 }
 
 
@@ -153,12 +157,12 @@ function disableButton(btn) {
     btn.prop("disabled", true);
     btn.attr("class", "btn btn-danger");
 }
-function enableButton(btn) {
+/*function enableButton(btn) {
     btn.prop("disabled", false);
     btn.attr("class", "btn btn-success");
 
 }
-
+*/
 
 //for(var letter of board) {
 //    document.getElementById("word").innerHTML += letter + " ";
