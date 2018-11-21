@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta charset = "utf-8">
+        <title>Learn Chinese</title>
+    </head>
+    <body>
+        <h1>Learn Chinese</h1>
+        <main>
+            <div id = "char-img">
+                <img src = "img/one.png" id = "charImg">
+            </div>
+            
+            <div id = "right-side">
+                <p>If you've learned all of them, please click me. I will go away!</p>
+                <div id="my-form" onsubmit="validateForm()">
+                    <h3>Please Choolse The Answer</h3>
+                    <div id="choose-answer"></div>
+                    Enter name: <input type="text" name="fname" id="fname">
+                    <input id="btn-sub" type="submit" value="Submit">
+                </div>
+                You selected: 
+                <label id="choice-label"></label>
+                <label id="right"></label>
+            </div>
+        </main>
+        <script src = "function.js"></script>
+        <footer>
+            cst336. 2018 &copy; Chi <br />
+            <strong>Disclaimer: </strong> The information in this webpage is fictious. <br />
+            It is unsed for acdemic purposes only. <br />
+            <img src = "../../img/csumb2-300x190.png" alt = "csumb logo" /> 
+            <img src = "../../img/buddy_verified.png" alt = "buddy_verified"/>
+        </footer>
+
+    </body>
+</html>
