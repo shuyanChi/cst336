@@ -1,0 +1,66 @@
+body {
+    padding: 15px;
+    background-color: #ccccff;
+    backface-visibility: visible;
+}
+
+h1 {
+    padding-top: 0px;
+    padding-bottom: 35px;
+    margin-top: 0px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin-bottom: 0px;
+    text-shadow: 3px 3px 15px #F5F5DC;
+    
+}
+.error{
+    color: #FF0000;
+    font-size: 1em;
+    
+}
+
+div {
+    margin: 20px;
+    padding: 15px; 
+    vertical-align: top;
+    text-decoration: left;
+}
+form {
+    padding: 30px;
+    line-height: 0.9;
+}
+
+#btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#set-center {
+    padding-left: 565px;
+    alignment-baseline: central;
+}
+legend {
+    text-align: center;
+    font-size: 2em;
+    color: #4CAF50;
+    padding-bottom: 25px;
+    
+
+}
+footer {
+    clear: left;
+    color: #000000;
+    text-align: center;
+    font-size: 13px;
+    padding: 15px;
+    box-shadow: 10px 10px 5px #F5F5DC;
+}
