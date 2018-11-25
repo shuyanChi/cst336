@@ -1,3 +1,4 @@
+<?php include 'usernameLookup.php';?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -85,6 +86,27 @@
                    
                 }); // state event
             });//documentReady
+            
+            $("#username").change(function() {
+               $.ajax({
+                   type: "get",
+                   url: "usernameLookup.php",
+                   data:{"username":$(this).val()
+                   },
+                   success:function(data, status) {
+                       //alert(data);
+                       if(data == "Available") {
+                           $("#usernameValidation").html("Available!");
+                           $("#usernameValidation").css("color", "green");
+                       }
+                       else {
+                           $("#usernameValidation").html("Username already taken!");
+                           $("#usernameValidation").css("color", "red");
+                       }
+                   }
+               }); 
+            });
+
         </script>
         
         <style>
@@ -123,7 +145,7 @@
                 
                 Select a County: <select id="county"></select><br>
                 
-                Desired Username: <input id="username"  type="text">  <span id="usernameError" class="error" ></span> 
+                Desired Username: <input id="username"  type="text">  <span id="usernameError"  span id = "usernameValidation" class="error" ></span> 
                 <br>
                 
                 Password: <input id = "password" type="password"><span id = "passwordError" class = "error"></span> <br />

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,53 +5,54 @@
         <title>AJAX: Sign Up Page</title>
 
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <script>
-        
             function validateForm() {
                 
                 var username = $("#username").val();
                 var password = $("#password").val();
-                var passwordAgain =  $("#passwordAgain").val();
+                var psswordAgain = $("#passwordAgain").val();
                 
                 if (username.length < 5 ) {
                     
                     $("#usernameError").html("Error: Username must be at least 5 characters long");
-                    
                 }
-                if (password.length < 3) {
-                    
-                    $("#passwordError").html("Error: Password not long enough, needs to be 3 characters long");
-                    
+                if(password.length < 3) {
+                   $("#passwordError").html("Error: password must be at least 3 characteres long");
                 }
-                
-                if(password != passwordAgain){
-                    $("#passwordMismatch").html("Error: Passwords must match");
+                if(password != passwordAgain) {
+                    $("#passwordAgainError").html("Error: they don't match.");
                 }
-                
                 return false;
-           
             }
-            
             
             $("document").ready(function(){  
                 
                 $("#zip").change(function(){
-                    
                     $.ajax({
-
                         type: "GET",
                         url: "http://itcdland.csumb.edu/~milara/ajax/cityInfoByZip.php",
                         dataType: "json",
                         data: { "zip": $("#zip").val() },
                         success: function(data,status) {
-                           
+                             alert(data.city);
+                             $("#city").html(data.city);
+                           if(!data) {
+                                $("zip").after("<div id='zipCodeNotFound'>*Zipcode not found!</div>").html("Not found");
+                           }
+                           else {
                            alert(data.city);
+                           $("#zipCodeNotFound").empty();
                            $("#city").html(data.city);
+                           $("#latitude").html(data.latitude);
+                           $("#longitude").html(data.longitude);
                            
-                        
+                           }
                         },
                         complete: function(data,status) { //optional, used for debugging purposes
-                        //alert(status);
+                            alert(status);
                         }
                         
                     });//ajax
@@ -67,11 +67,12 @@
                         dataType: "json",
                         data: { "state": $("#state").val() },
                         success: function(data,status) {
+                            //$("#county").html("<option value = ''> Select one</option>");
                             $("#county").html("Select one");
                         for(var i =0; i < data.length; i++){
                             $("#county").append("<option>" + data[i].county + "</option>");
                         }
-                            alert(data[0].county);
+                            //alert(data[0].county);
                            //$("#city").html(data.city);
                          
                         
@@ -84,17 +85,11 @@
                    
                 }); // state event
             });//documentReady
-            
-            
-            
-            
         </script>
         
         <style>
             
-            .error{
-                color: red;
-            }
+        
         </style>
 
     </head>
@@ -104,21 +99,21 @@
        <h1> Sign Up Form </h1>
     
         <form onsubmit="return validateForm()">
-            <fieldset>
+            <fieldset id="set-center">
                <legend>Sign Up</legend>
                 First Name:  <input type="text"><br> 
                 Last Name:   <input type="text"><br> 
                 Email:       <input type="text"><br> 
                 Phone Number:<input type="text"><br><br>
-                Zip Code:    <input type="text" id="zip"><br>
-                City:  <span id="city"></span>
+                Zip Code:    <input type="text" id = "zip"><span id="zipCodeNotFound" class = "error"></span><br>
+                City: <span id="city"></span>
                 <br>
-                Latitude: 
+                Latitude: <span id="latitude"></span>
                 <br>
-                Longitude:
+                Longitude:<span id="longitude"></span>
                 <br><br>
                 State: 
-                <select id="state">
+                <select id = "state">
                     <option value="">Select One</option>
                     <option value="ca"> California</option>
                     <option value="ny"> New York</option>
@@ -131,11 +126,12 @@
                 Desired Username: <input id="username"  type="text">  <span id="usernameError" class="error" ></span> 
                 <br>
                 
-                Password: <input id="password" type="password"><span id="passwordError" class="error"></span><br>
+                Password: <input id = "password" type="password"><span id = "passwordError" class = "error"></span> <br />
                 
-                Type Password Again: <input id="passwordAgain" type="password"><span id="passwordMismatch" class="error"></span><br>
+                Type Password Again: <input id = "passwordAgain" type="password">  <span id = "passwordAgainError" class = "error"></span><br />
+                <br>
                 
-                <input type="submit" value="Sign up!">
+                <input type="submit" id = "btn" value="Sign up!">
             </fieldset>
         </form>
     
