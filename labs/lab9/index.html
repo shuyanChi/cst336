@@ -1,4 +1,3 @@
-<?php include 'usernameLookup.php';?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,13 +10,11 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <script>
             function validateForm() {
-                
                 var username = $("#username").val();
                 var password = $("#password").val();
                 var psswordAgain = $("#passwordAgain").val();
                 
                 if (username.length < 5 ) {
-                    
                     $("#usernameError").html("Error: Username must be at least 5 characters long");
                 }
                 if(password.length < 3) {
@@ -38,22 +35,22 @@
                         dataType: "json",
                         data: { "zip": $("#zip").val() },
                         success: function(data,status) {
-                             alert(data.city);
-                             $("#city").html(data.city);
+                             //alert(data.city);
+                           //$("#city").html(data.city);
                            if(!data) {
-                                $("zip").after("<div id='zipCodeNotFound'>*Zipcode not found!</div>").html("Not found");
+                                $("#zipCodeNotFound").html("zipcode isn't known!");
+                                 $("#zipCodeNotFound").css("color", "red");
                            }
                            else {
-                           alert(data.city);
-                           $("#zipCodeNotFound").empty();
-                           $("#city").html(data.city);
-                           $("#latitude").html(data.latitude);
-                           $("#longitude").html(data.longitude);
+                               $("#zipCodeNotFound").empty();
+                               $("#city").html(data.city);
+                               $("#latitude").html(data.latitude);
+                               $("#longitude").html(data.longitude);
                            
                            }
                         },
                         complete: function(data,status) { //optional, used for debugging purposes
-                            alert(status);
+                        //alert(status);
                         }
                         
                     });//ajax
@@ -62,64 +59,55 @@
                 
                 $("#state").change(function(){
                     $.ajax({
-
                         type: "GET",
                         url: "http://itcdland.csumb.edu/~milara/ajax/countyList.php",
                         dataType: "json",
                         data: { "state": $("#state").val() },
                         success: function(data,status) {
                             //$("#county").html("<option value = ''> Select one</option>");
-                            $("#county").html("Select one");
+                        $("#county").html("Select one");
                         for(var i =0; i < data.length; i++){
                             $("#county").append("<option>" + data[i].county + "</option>");
                         }
                             //alert(data[0].county);
                            //$("#city").html(data.city);
-                         
-                        
                         },
                         complete: function(data,status) { //optional, used for debugging purposes
                         //alert(status);
                         }
-                        
                     });//ajax
-                   
                 }); // state event
-            });//documentReady
-            
-            $("#username").change(function() {
-               $.ajax({
-                   type: "get",
-                   url: "usernameLookup.php",
-                   data:{"username":$(this).val()
-                   },
-                   success:function(data, status) {
-                       //alert(data);
-                       if(data == "Available") {
-                           $("#usernameValidation").html("Available!");
-                           $("#usernameValidation").css("color", "green");
-                       }
-                       else {
-                           $("#usernameValidation").html("Username already taken!");
-                           $("#usernameValidation").css("color", "red");
-                       }
-                   }
-               }); 
+                
+                $("#username").change(function() {
+                var username = $("#username").val();
+                //alert(username);
+                $.ajax({
+                    type: "GET",
+                    url: "usernameLookup.php",
+                    dataType: "json",
+                    data: { "username": username },
+                    success: function(data, status) {
+                        if(!data) {
+                            $("#usernameError").html("username is available");
+                            $("#usernameError").css("color", "green");
+                        } else {
+                             $("#usernameError").html("username is not available");
+                             $("#usernameError").css("color", "red");
+                        }
+                    },
+                    complete: function(data, status) { //optional, used for debugging purposes
+                        //alert(status);
+                    }
+
+                }); //ajax
             });
-
-        </script>
-        
-        <style>
+        });//documentReady
             
-        
-        </style>
-
+        </script>
     </head>
 
     <body>
-    
        <h1> Sign Up Form </h1>
-    
         <form onsubmit="return validateForm()">
             <fieldset id="set-center">
                <legend>Sign Up</legend>
@@ -152,11 +140,18 @@
                 
                 Type Password Again: <input id = "passwordAgain" type="password">  <span id = "passwordAgainError" class = "error"></span><br />
                 <br>
-                <span id="usernameValidation" class="error" ></span>
                 
                 <input type="submit" id = "btn" value="Sign up!">
             </fieldset>
         </form>
+        
+        <footer>
+            cst336. 2018 &copy; Chi <br />
+            <strong>Disclaimer: </strong> The information in this webpage is fictious. <br />
+            It is unsed for acdemic purposes only. <br />
+            <img src = "../../img/csumb2-300x190.png" alt = "csumb logo" /> 
+            <img src = "../../img/buddy_verified.png" alt = "buddy_verified"/>
+        </footer>
     
     </body>
 </html>

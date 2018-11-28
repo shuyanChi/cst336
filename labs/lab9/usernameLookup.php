@@ -1,10 +1,16 @@
 <?php
-    $usernames = array("eddy", "ted", "teddy", "eddie", "edward");
-    if(in_array($_GET['username'], $usernames)) {
-        echo "Unavailable";
-    }
-    else {
-        echo "Available";
-    }
+    header('Access-Control-Allow-Origin: *');
+    include '../../inc/dbConnection.php';
+    $dbConn = startConnection("ottermart");
+
+    $sql = "SELECT * FROM om_admin WHERE username = :username";
+    $parameters = array();
+    $parameters[":username"] = $_GET["username"];
+    $stmt = $dbConn->prepare($sql);
+    $stmt->execute($parameters);
+    $record = $stmt ->fetch(PDO::FETCH_ASSOC);
+    //print_r($record);
+    //do not display anything in json file
+    echo json_encode($record);
 
 ?>
