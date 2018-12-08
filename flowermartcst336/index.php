@@ -5,6 +5,7 @@
 <?php
     include 'inc/dbConnection.php';
     include 'inc/functions.php';
+   
     $_SESSION['temp'] = array ();
     
     $dbConn = startConnection('tp_flowers');  //Make sure dbConnection.php file knows about this.
@@ -26,9 +27,10 @@
     if($_GET['searchForm'] == 'submit') {
         $_SESSION['display'] = $items;
     }
-    
-    //print_r($_SESSION['display']);
-    
+    echo "<p>";
+    echo"this is session display";
+    print_r($_SESSION['display']);
+    echo "</p>";
     //echo "<br/><br/><br/>";
     //echo "HEY SESSION display is " . $_SESSION['display'][0]['flowerName']; 
     //echo "<br/>";

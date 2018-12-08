@@ -17,12 +17,9 @@
         foreach($records as $record) {
             echo "<option value ='". $record['catId']."'>". $record["catName"]."</option>";
         }
-<<<<<<< HEAD
         
     
         
-=======
->>>>>>> 8f53f6f5ab0d5f73b0e395a3addf915af4496d91
     }
     
     function filterProducts() {
