@@ -163,7 +163,7 @@
             </div>
           </div>
         </div>
-      
+        
             <?php 
              echo "<table class='table' style='background-color: #99ccff'>";
              echo "<tr>";
@@ -183,15 +183,13 @@
             echo "</table>";
            
             ?>
-          
+         
       
 
         <footer>
             <img id="set-img" src = "../img/csumb2-300x190.png" alt = "csumb logo" /><br />
-             cst412. 2018 &copy; <br />
-            <strong>Disclaimer: </strong> The information in this webpage is fictious. <br />
-            It is unsed for acdemic purposes only. <br />
-        
+             cst336. 2018 &copy; <br />
+             <p><h3 class="h3"><a href="https://www.amazon.com/Daughter-T-rex-Shuyan-Chi/dp/154953761X">The Daughter of T-rex</a></h3></p>
         </footer>
        <!-- <script src="main.js"></script> -->
        

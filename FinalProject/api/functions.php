@@ -17,18 +17,8 @@ function QueenieandAmber() {
     $name = $mybabies['Name'];
     //print_r($mybabies);
     return $mybabies;
-    
- //$flower_img = $item['flower_img']
 }
-/*function displayAllChickens(){
-    global $dbConn;
-    $sql = "SELECT * FROM Chickens ORDER BY Breed ASC";
-    $stmt = $dbConn->prepare($sql);
-    $stmt->execute();
-    $records = $stmt->fetchAll(PDO::FETCH_ASSOC); //we're expecting multiple records
-    return $records;
 
-}*/
 
 function displayAllChickens(){
     global $dbConn;

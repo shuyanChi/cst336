@@ -9,9 +9,6 @@
             $eggProduction = $_GET['egg'];
             echo $eggProduction;
             $chickenColor = $_GET['color'];
-            /*echo $chickenBreed;
-            echo "<hr />";
-            echo $chickenColor;*/
             $np = array();
             $sql = "SELECT * FROM Chickens WHERE 1";
             //SELECT * FROM `Chickens` WHERE 1 And Breed LIKE '%Australorp%'
@@ -38,10 +35,7 @@
             $stmt = $dbConn->prepare($sql);
             $stmt->execute($np);
             $record = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            //print_r($record);
-            //$temp = $record;
-           // return $temp;
-           return $record;
+            return $record;
         }
     }
     
@@ -53,12 +47,6 @@
                 $stmt = $dbConn->prepare($sql);
                 $stmt->execute();
                 $record = $stmt->fetch(PDO::FETCH_ASSOC);
-                
-                /*foreach($record as $rec) {
-                    echo $rec['Name'] ."<br/>";
-                }*/
-                //echo $_GET['dino'];
-                //print_r($record);
                 return $record;
             }
     }
