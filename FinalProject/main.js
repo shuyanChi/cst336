@@ -1,18 +1,21 @@
-$('document').ready(function(){
-    $('.dino-link').click(function(){
-        $.ajax({
-            type: "GET",
-            url: "api/getDinoInfo.php",
-            dataType:"json",
-            data: {"dino_id": $(this).attr('Id')},
-            success: function(data, status) {
-                $("#name").html(data.Name);
-                $("#dis").html(data.description);
-                $("#d-img").attr('src', data.Image);
-            },
-            
-        });//ajax closing
-        //alert($(this).attr('Id'))
-    })//link
-});//document
-
+//modal
+$('document').ready(function() {
+  $('#btn').click(function() {
+      ("#container").html("<img src='img/loading.gif' />");
+      $('#petModal').modal("show");
+      $.ajax({
+        type: "GET",
+        url: "api/getDatabase.php",
+        dataType: "json",
+        data: { "petid": $(this).attr('Id') },
+        success: function(data, status) {
+            alert(data);
+           /* $("#name").html(data.Breed);
+            $("#description").html(data.History);
+            $("#image").attr('src', data.Image);
+            $("#container").html("");*/
+        },
+     }); // ajax closing
+  }); // btnclick
+  
+}); // doc end
